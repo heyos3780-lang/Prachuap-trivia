@@ -1,0 +1,10 @@
+/* ตัวละครผู้เล่นบนแผนที่ (เดิน/ยืนนิ่ง) */
+#hero{position:absolute;left:0;top:0;width:var(--c);height:var(--c);z-index:5;pointer-events:none;transition:transform .2s linear}
+#hero svg{width:100%;height:128%;margin-top:-28%;overflow:visible;transition:transform .1s}
+#hero .leg,#hero .arm{transform-box:fill-box;transform-origin:50% 5%}
+#hero.walk .leg.l,#hero.walk .arm.r{animation:hsw .13s infinite alternate}
+#hero.walk .leg.r,#hero.walk .arm.l{animation:hsw .13s infinite alternate-reverse}
+#hero.walk #bd{animation:hbob .13s infinite alternate}
+#hero:not(.walk) #bd{animation:hbob 1s ease-in-out infinite alternate}
+@keyframes hsw{from{transform:rotate(-30deg)}to{transform:rotate(30deg)}}
+@keyframes hbob{to{transform:translateY(-1.5px)}}
